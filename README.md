@@ -1,1 +1,3 @@
-# 20-Games-Challenge---Game-01---Pong
+# [20-Games-Challenge](https://20_games_challenge.gitlab.io/)
+
+## [Game 01: Pong](https://20_games_challenge.gitlab.io/games/pong/)
