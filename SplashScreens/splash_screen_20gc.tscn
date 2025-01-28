@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyw1ty6euqc8y"]
+
+[ext_resource type="Texture2D" uid="uid://cfnaqwsaajpex" path="res://SplashScreens/logo.png" id="1_2tte4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ry5a8"]
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_tipr1"]
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_5h4wf"]
+font_size = 96
+
+[node name="SplashScreen_20GC" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 563.0
+offset_top = 285.0
+offset_right = 627.0
+offset_bottom = 349.0
+texture = ExtResource("1_2tte4")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 657.0
+offset_top = 270.0
+offset_right = 1410.0
+offset_bottom = 358.0
+text = "The 20 Games Challenge"
+label_settings = SubResource("LabelSettings_ry5a8")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 909.0
+offset_top = 548.0
+offset_right = 1085.0
+offset_bottom = 615.0
+text = "Game 1"
+label_settings = SubResource("LabelSettings_tipr1")
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 883.0
+offset_top = 677.0
+offset_right = 1115.0
+offset_bottom = 809.0
+text = "Pong"
+label_settings = SubResource("LabelSettings_5h4wf")

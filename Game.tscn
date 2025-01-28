@@ -1,0 +1,152 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3jm3twny1jly"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_d4h0r"]
+[ext_resource type="Script" path="res://game.gd" id="1_kync3"]
+[ext_resource type="Script" path="res://ball.gd" id="3_q4e0k"]
+[ext_resource type="Script" path="res://cpu.gd" id="4_4nemm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_id58s"]
+size = Vector2(1920, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhf2y"]
+size = Vector2(100, 1080)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2mxlu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qt33v"]
+size = Vector2(20, 140)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s5ums"]
+font_size = 200
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_kync3")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Divider" type="Polygon2D" parent="."]
+position = Vector2(960, 540)
+polygon = PackedVector2Array(-1, -540, 1, -540, 1, 540, -1, 540)
+metadata/_edit_lock_ = true
+
+[node name="UpperBounds" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpperBounds"]
+position = Vector2(960, 5)
+shape = SubResource("RectangleShape2D_id58s")
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="UpperBounds"]
+polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 10, 0, 10)
+metadata/_edit_lock_ = true
+
+[node name="LowerBounds" type="StaticBody2D" parent="."]
+position = Vector2(0, 1070)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LowerBounds"]
+position = Vector2(960, 5)
+shape = SubResource("RectangleShape2D_id58s")
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="LowerBounds"]
+polygon = PackedVector2Array(0, 0, 1920, 0, 1920, 10, 0, 10)
+metadata/_edit_lock_ = true
+
+[node name="LeftGoal" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal"]
+position = Vector2(-50, 540)
+shape = SubResource("RectangleShape2D_jhf2y")
+metadata/_edit_lock_ = true
+
+[node name="RightGoal" type="Area2D" parent="."]
+position = Vector2(1970, 540)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal"]
+shape = SubResource("RectangleShape2D_jhf2y")
+metadata/_edit_lock_ = true
+
+[node name="Ball" type="CharacterBody2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("3_q4e0k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("RectangleShape2D_2mxlu")
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="Ball"]
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+metadata/_edit_lock_ = true
+
+[node name="PlayerLeft" type="CharacterBody2D" parent="."]
+position = Vector2(30, 540)
+script = ExtResource("1_d4h0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerLeft"]
+shape = SubResource("RectangleShape2D_qt33v")
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="PlayerLeft"]
+polygon = PackedVector2Array(-10, -70, 10, -70, 10, 70, -10, 70)
+metadata/_edit_lock_ = true
+
+[node name="PlayerRight" type="CharacterBody2D" parent="."]
+position = Vector2(1890, 540)
+script = ExtResource("1_d4h0r")
+action_up = "player_right_up"
+action_down = "player_right_down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerRight"]
+shape = SubResource("RectangleShape2D_qt33v")
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="PlayerRight"]
+polygon = PackedVector2Array(-10, -70, 10, -70, 10, 70, -10, 70)
+metadata/_edit_lock_ = true
+
+[node name="CPU" type="CharacterBody2D" parent="."]
+position = Vector2(1890, 540)
+script = ExtResource("4_4nemm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPU"]
+shape = SubResource("RectangleShape2D_qt33v")
+metadata/_edit_lock_ = true
+
+[node name="Polygon2D" type="Polygon2D" parent="CPU"]
+polygon = PackedVector2Array(-10, -70, 10, -70, 10, 70, -10, 70)
+metadata/_edit_lock_ = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="LabelScoreLeft" type="Label" parent="UI"]
+offset_left = 436.0
+offset_top = 75.0
+offset_right = 550.0
+offset_bottom = 348.0
+text = "0"
+label_settings = SubResource("LabelSettings_s5ums")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="LabelScoreRight" type="Label" parent="UI"]
+offset_left = 1388.0
+offset_top = 75.0
+offset_right = 1502.0
+offset_bottom = 348.0
+text = "0"
+label_settings = SubResource("LabelSettings_s5ums")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="LeftGoal" to="." method="_on_left_goal_body_entered"]
+[connection signal="body_entered" from="RightGoal" to="." method="_on_right_goal_body_entered"]

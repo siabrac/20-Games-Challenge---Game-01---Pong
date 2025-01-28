@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfoydmdko1ye"]
+
+[ext_resource type="Texture2D" uid="uid://jtib5dmdo5qd" path="res://SplashScreens/icon-dark.png" id="1_lsf1d"]
+
+[node name="SplashScreen_Godot" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_lsf1d")
+expand_mode = 1

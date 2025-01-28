@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2ehuyubxoguu"]
+
+[ext_resource type="Script" path="res://SplashScreens/splash_screens.gd" id="1_qvmev"]
+[ext_resource type="PackedScene" uid="uid://bfoydmdko1ye" path="res://SplashScreens/splash_screen_godot.tscn" id="2_3m3rk"]
+[ext_resource type="PackedScene" uid="uid://dyw1ty6euqc8y" path="res://SplashScreens/splash_screen_20gc.tscn" id="3_ix7n6"]
+
+[node name="SplashScreens" type="Node2D"]
+script = ExtResource("1_qvmev")
+splash_screens = Array[PackedScene]([ExtResource("2_3m3rk"), ExtResource("3_ix7n6")])
+
+[node name="CurentSplash" type="CanvasLayer" parent="."]
+
+[node name="FaderLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Fader" type="ColorRect" parent="FaderLayer"]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
